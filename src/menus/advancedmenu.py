@@ -120,3 +120,5 @@ class AdvancedOptionsMenu(Menu):
 			else:
 				self.display.blit(self.font.render(self.items[i], None, pg.Color("gray")), (self.display.get_width() / 2 - len(self.items[i]*8) / 2, y))
 			y += 8
+
+		self.display.blit(self.font.render("Be careful :)", None, pg.Color("dimgray")), (28, 88))
