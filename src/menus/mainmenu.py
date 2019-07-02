@@ -43,6 +43,7 @@ class MainMenu(Menu):
 					if self.counter == self.items.index("Play"):
 						gameTypeScreen = GameTypeMenu()
 						gameTypeScreen.main()
+						self.soundSetup()
 
 					if self.counter == self.items.index("Options"):
 						optionsScreen = OptionsMenu()
