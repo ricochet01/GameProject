@@ -39,7 +39,7 @@ class Const:
 	WIDTH = 160
 	HEIGHT = 120
 	SCALE = (int(content[1], 16) >> 8)
-	TITLE = "Untitled"
+	TITLE = "FlowerBombs"
 
 	if not isinstance(SCALE, int):
 		raise ValueError("Scale must be an integer!")

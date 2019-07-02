@@ -69,7 +69,8 @@ class MainMenu(Menu):
 					self.goBack.play()
 
 	def menuUpdate(self):
-		self.display.blit(self.font.render(Const.TITLE, None, pg.Color("red")), (self.display.get_width() / 2 - len(Const.TITLE) * 4, 8))
+		self.display.blit(self.font.render(Const.TITLE[:6], None, pg.Color("green")), (self.display.get_width() / 2 - len(Const.TITLE) * 4, 8))
+		self.display.blit(self.font.render(Const.TITLE[6:], None, pg.Color("red")), (self.display.get_width() / 2 - len(Const.TITLE) * 4 + 48, 8))
 
 		self.titleY = self.display.get_height() / 2 - len(self.items) * 4
 		for i in range(len(self.items)):
