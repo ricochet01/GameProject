@@ -112,7 +112,7 @@ class Menu:
 		Level.render(self.bottomSurf, self.tiles, Const.WIDTH, Const.HEIGHT, 0, 0, self.p, self.sheet, 0)
 
 	def takeScreenshot(self):
-		screenshot = pg.transform.scale(self.display.copy(), Const.WINDOW_SIZE)
+		screenshot = pg.transform.scale(pg.surfarray.make_surface(self.pixels).copy(), Const.WINDOW_SIZE)
 		current = datetime.datetime.now()
 		imgname = "screenshot-" + current.strftime("%d-%m-%Y-%H-%M-%S") + ".png"
 		scrnsht_file = pg.image.save(screenshot, "screenshots/" + imgname)
