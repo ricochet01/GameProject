@@ -1,9 +1,9 @@
 {
     "Difficulty": "Medium",
-    "Density": 0.06,
+    "Density": 0.04,
     "Size": [
-        64,
-        64
+        32,
+        32
     ],
-    "Time limit": 120
+    "Time limit": 60
 }
