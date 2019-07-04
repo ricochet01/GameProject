@@ -17,6 +17,7 @@ class AdvancedOptionsMenu(Menu):
 					"Scanlines: ON" if Const.crtEffect else "Scanlines: OFF",
 					"Inversion: %d" % Const.inversion,
 					"Red channel: %d" % Const.redChannel,
+					"Green channel: %d" % Const.greenChannel,
 					"Blue channel: %d" % Const.blueChannel]
 
 	def eventHandler(self):
@@ -67,9 +68,16 @@ class AdvancedOptionsMenu(Menu):
 
 					elif self.counter == 4 and Const.filters:
 						self.scroll.play()
+						Const.greenChannel = (Const.greenChannel - 1) & 0xff
+						self.items[4] = "Green channel: %d" % Const.greenChannel
+						Const.replaceConfig(9, "{:04x}".format(Const.greenChannel))
+
+					elif self.counter == 5 and Const.filters:
+						self.scroll.play()
 						Const.blueChannel = (Const.blueChannel - 1) & 0xff
-						self.items[4] = "Blue channel: %d" % Const.blueChannel
+						self.items[5] = "Blue channel: %d" % Const.blueChannel
 						Const.replaceConfig(7, "{:04x}".format(Const.blueChannel))
+
 
 				if event.key in self.input.rightKeys:
 					if self.counter == 0:
@@ -98,12 +106,15 @@ class AdvancedOptionsMenu(Menu):
 
 					elif self.counter == 4 and Const.filters:
 						self.scroll.play()
-						Const.blueChannel = (Const.blueChannel + 1) & 0xff
-						self.items[4] = "Blue channel: %d" % Const.blueChannel
-						Const.replaceConfig(7, "{:04x}".format(Const.blueChannel))
+						Const.greenChannel = (Const.greenChannel + 1) & 0xff
+						self.items[4] = "Green channel: %d" % Const.greenChannel
+						Const.replaceConfig(9, "{:04x}".format(Const.greenChannel))
 
-				if event.key == K_RETURN:
-					self.select.play()
+					elif self.counter == 5 and Const.filters:
+						self.scroll.play()
+						Const.blueChannel = (Const.blueChannel + 1) & 0xff
+						self.items[5] = "Blue channel: %d" % Const.blueChannel
+						Const.replaceConfig(7, "{:04x}".format(Const.blueChannel))
 
 				if event.key == K_ESCAPE:
 					self.running = False

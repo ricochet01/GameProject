@@ -66,8 +66,11 @@ class Const:
 
 	inversion = int(content[4], 16)
 	crtEffect = int(content[5], 16)
+
 	redChannel = int(content[6], 16)
 	blueChannel = int(content[7], 16)
+	greenChannel = int(content[9], 16)
+
 	filters = int(content[8], 16)
 
 

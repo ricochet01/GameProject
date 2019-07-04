@@ -301,9 +301,11 @@ class Game:
 
 		if Const.filters:
 			if Const.redChannel:
-				self.pixels[:,:,1:] = Const.redChannel
+				self.pixels[:,:,0] += Const.redChannel
+			if Const.greenChannel:
+				self.pixels[:,:,1] += Const.greenChannel
 			if Const.blueChannel:
-				self.pixels[:,:,2:] = Const.blueChannel
+				self.pixels[:,:,2] += Const.blueChannel
 			if Const.inversion:
 				self.pixels ^= Const.inversion
 
